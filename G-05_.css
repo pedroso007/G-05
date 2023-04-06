@@ -1,13 +1,59 @@
-header {
-    background-color: #87B0D6;
-    color:#F1EDCA ;
+*{
+    margin: 0;
+    padding: 0;
+}
 
+.cabecalho {
+    background-image: linear-gradient(#9999ff,#ccccff);
+    color: #FFFFFF;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 24px 0;
 }
 .cabecalho-imagem{
+    width: 10%;
+}
+.cabecalho-lista-item{
+    display: inline-block;
+    margin: 0 16px;
+    font-size: 24px;
+}
+.textos-equipe{
+    padding-left: 30px;
+}
+.imagem-equipe{
+    
+    padding-left: 50px;
     width: 20%;
 }
-p{
+.parte-equipe{
+    padding-top: 50px;
+    display: flex;
+    justify-content: center; 
+    
 }
-.cabeçalho imagem1{
-width: 05%;
+
+.title-integrantes{
+    text-align: center;
+}
+.integrantes{
+    padding-top: 30px;
+
+}
+.integrantes-indivi-info{
+    display: grid;
+    grid-template-columns: 50% 50%
+}
+.integrantes-indivi{
+    display: flex;
+    padding-left: 20%;
+    padding-top: 10%;
+}
+.foto-indivi{
+    width: 20%;
+}
+.integrantes-indivi-textos{
+    padding-left: 40px;
+
 }
