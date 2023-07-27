@@ -71,10 +71,6 @@
     padding-left: 40px;
 
 }
-{
-    font-family:Verdana, Geneva, sans-serif;
-    font-size:12px;
-}
 
 li a:hover,
 .dropdown:hover .dropbtn {
@@ -119,6 +115,7 @@ li.dropdown {
     text-align: center;
     padding: 0px 16px;
     text-decoration: none;
+}
 .carrosel {
   text-align: center;
   background-color: rgb(185, 185, 185);
