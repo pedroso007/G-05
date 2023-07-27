@@ -129,7 +129,7 @@ li.dropdown {
   list-style-type: none;
   margin: 10px 0;
   padding: 0;
-  width: 200%;
+  width: 800%;
   position: relative;
   left: 0%;
   display: grid;
@@ -144,7 +144,7 @@ li.dropdown {
 }
 
 .redondo {
-  width: 50%;
+  width: 300%;
 }
 
 .slide-show {
