@@ -34,7 +34,8 @@
 <section class="carrosel">
         <h2 class="corpo-titulo">Acompanhe as novidades:</h2>
         <div class="slide-show">
-            <ul class="slides-list">
+            <ul class="slides-list"
+               style="left:calc:(0%)">
                 <li class="slide1">
                     <a href="G-05-bio.html">
                         <img class="redondo" src="plant1.jpg" />
@@ -54,10 +55,31 @@
         </div>
 
         <input type="radio" class="slide-controller" name="slide1" checked />
-        <input type="radio" class="slide-controller" name="slide2" checked />
-        <input type="radio" class="slide-controller" name="slide3" checked />
+        <input type="radio" class="slide-controller" name="slide2" />
+        <input type="radio" class="slide-controller" name="slide3" />
          
     </section>
+   <script>
+        const slideControllers = document.querySelectorAll('.slide-controller');
+        const slidesList = document.querySelector('.slides-list');
+        let currentSlide = 0;
+
+        // Adicionar um evento de clique para cada controlador de slide
+        slideControllers.forEach((controller, index) => {
+            controller.addEventListener('click', () => {
+                currentSlide = index;
+                slidesList.style.left = `calc(${index} * -100%)`;
+            });
+        });
+      // Função para alterar os slides automaticamente após 20 segundos
+        function autoChangeSlide() {
+            currentSlide = (currentSlide + 1) % slideControllers.length;
+            slideControllers[currentSlide].checked = true;
+            slidesList.style.left = `calc(${currentSlide} * -100%)`;
+        }
+        // Definir um temporizador para alternar automaticamente os slides a cada 20 segundos (20000 milissegundos)
+        setInterval(autoChangeSlide, 10000);
+    </script>s
 
 <section class="integrantes">
         <h1 class="title-integrantes">Membros</h1>
