@@ -126,7 +126,7 @@ li.dropdown {
   list-style-type: none;
   margin: 5px 0;
   padding: 0;
-  width: 300%;
+  width: 100%;
   position: relative;
   left: 0%;
   display: grid;
@@ -165,21 +165,3 @@ li.dropdown {
   --selected-item: 3;
 }
 
-@media(min-width: 1024px) {
-    .div-img-carousel, .item.active {
-        overflow: hidden;
-        width: 700px;
-        height: 400px;
-        margin: 0 auto;
-    }
-
-    .carousel-inner {
-        width: 40%;
-    }
-
-    #meuSlider {
-        width: 700px;
-        height: 400px;
-    }
-
-}
