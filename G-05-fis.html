@@ -48,44 +48,46 @@
 <section class="carrosel">
         <h2 class="corpo-titulo">Relatórios de aula:</h2>
         <div class="slide-show">
-            <ul class="slides-list"
-               style="left:calc:(0%)">
+            <ul class="slides-list" style="left:calc(0%)">
                 <li class="slide1">
                         <img class="redondo" src="rob.jpg">
+                   </a>
                    
                 </li>
                 <li class="slide2">
                         <img class="redondo" src="rob1.jpg">
+                   </a>
                   
                 </li>
                 <li class="slide3">
                         <img class="redondo" src="rob2.jpg">
+                   </a>
                 </li>
                <li class="slide4"> 
                   <img class="redondo" src="rel.jpg">
+                  </a>
                   
                 </li>
             </ul>
         </div>
 
-        <input type="radio" class="slide-controller" name="slide1" checked />
-        <input type="radio" class="slide-controller" name="slide2" />
-        <input type="radio" class="slide-controller" name="slide3" />
-         
-    </section>
-   <script>
+        <input type="radio" class="slide-controller" name="slide" checked />
+        <input type="radio" class="slide-controller" name="slide" />
+        <input type="radio" class="slide-controller" name="slide" />
+   </section>
+      <script>
         const slideControllers = document.querySelectorAll('.slide-controller');
         const slidesList = document.querySelector('.slides-list');
         let currentSlide = 0;
-
-        // Adicionar um evento de clique para cada controlador de slide
+    // Adicionar um evento de clique para cada controlador de slide
         slideControllers.forEach((controller, index) => {
             controller.addEventListener('click', () => {
                 currentSlide = index;
                 slidesList.style.left = `calc(${index} * -100%)`;
             });
         });
-      // Função para alterar os slides automaticamente após 20 segundos
+
+        // Função para alterar os slides automaticamente após 20 segundos
         function autoChangeSlide() {
             currentSlide = (currentSlide + 1) % slideControllers.length;
             slideControllers[currentSlide].checked = true;
@@ -93,7 +95,9 @@
         }
         // Definir um temporizador para alternar automaticamente os slides a cada 20 segundos (20000 milissegundos)
         setInterval(autoChangeSlide, 10000);
-    </script>
+         
+    </section>
+   <script>
    
 
    <p class="apresentacao-equipe"> Projeto </p>
