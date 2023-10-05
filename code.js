@@ -19,171 +19,93 @@ function pause() {
 myMusic.pause();
 
 }
-</script>
 
-<script>
-      var Plus = function() {
-  this.x = 0;
-  this.y = 0;
 
-  this.top = 0;
-  this.left = 0;
 
-  this.height = 0;
-  this.width = 0;
-  this.scale = 1;
-};
+console.clear();
+const content = document.querySelector(".content");
+const link = document.querySelector("a");
+const linkIcon = document.querySelector(".btn-icon");
+let linkAnimated = false;
 
-//Add draw method to the object
-Plus.prototype.draw = function(ctx, x, y) {
-  ctx.save();
-  ctx.beginPath();
-  ctx.setTransform(
-    this.scale,
-    0,
-    0,
-    this.scale,
-    this.left + this.x,
-    this.top + this.y
-  );
-  ctx.lineWidth = 2;
+let xTo = gsap.quickTo(".hidden-content", "--x", {
+    duration: 0.4,
+    ease: "power4.out"
+  }),
+  yTo = gsap.quickTo(".hidden-content", "--y", {
+    duration: 0.4,
+    ease: "power4.out"
+  });
 
-  ctx.moveTo(0, -this.height / 2);
-  ctx.lineTo(0, this.height / 2);
-
-  ctx.moveTo(-this.width / 2, 0);
-  ctx.lineTo(this.width / 2, 0);
-
-  ctx.stroke();
-  ctx.closePath();
-  ctx.restore();
-};
-
-var c = document.getElementById("c");
-var context = c.getContext("2d");
-var signs = [];
-var mouse = { x: 0, y: 0 };
-var gridLength = 9;
-var mouseOver = false;
-var mouseMoved = false;
-
-c.width = window.innerWidth;
-c.height = window.innerHeight;
-
-// Create sign grid using 2D array
-for (var i = 0; i < gridLength; i++) {
-  signs[i] = [];
-  for (var j = 0; j < gridLength; j++) {
-    var min = Math.min(c.width, c.height);
-    signs[i][j] = new Plus();
-    signs[i][j].left = c.width / (gridLength + 1) * (i + 1);
-    signs[i][j].top = c.height / (gridLength + 1) * (j + 1);
-    signs[i][j].width = min / 50;
-    signs[i][j].height = min / 50;
-  }
-}
-
-// Use GSAP ticker to call draw function on every frame that will draw signs to the canvas
-// You can use requestAnimationFrame as well
-TweenLite.ticker.addEventListener("tick", draw);
-
-function draw() {
-  context.clearRect(0, 0, c.width, c.height);
-
-  if (mouseOver && mouseMoved) {
-    calculateSigns();
-    mouseMoved = false;
-  }
-
-  for (var i = 0; i < gridLength; i++) {
-    for (var j = 0; j < gridLength; j++) {
-      var sign = signs[i][j];
-      sign.draw(context);
-    }
-  }
-}
-
-function calculateSigns() {
-  for (var i = 0; i < gridLength; i++) {
-    for (var j = 0; j < gridLength; j++) {
-      var sign = signs[i][j];
-      var hyp = Math.min(c.width, c.height) / (gridLength + 1) / 2;
-      var d = dist([sign.left, sign.top], [mouse.x, mouse.y]);
-      var ax = mouse.x - sign.left;
-      var ay = mouse.y - sign.top;
-      var angle = Math.atan2(ay, ax);
-      if (d < hyp + sign.width) {
-        hyp = d;
-        TweenMax.to(sign, 0.3, { scale: 2 });
-      } else {
-        TweenMax.to(sign, 0.3, { scale: 1 });
-      }
-
-      TweenMax.to(sign, 0.3, {
-        x: Math.cos(angle) * hyp,
-        y: Math.sin(angle) * hyp
-      });
-    }
-  }
-}
-
-c.addEventListener("mousemove", mouseMove);
-c.addEventListener("touchmove", mouseMove);
-
-function mouseMove(e) {
-  if (e.targetTouches && e.targetTouches[0]) {
-    e = e.targetTouches[0];
-  }
-  var rect = c.getBoundingClientRect();
-  mouse.x = e.clientX - rect.left;
-  mouse.y = e.clientY - rect.top;
-  mouseMoved = true;
-}
-
-c.addEventListener("mouseenter", function() {
-  mouseOver = true;
+let tl = gsap.timeline({ paused: true });
+tl.to(".hidden-content", {
+  "--size": 250,
+  duration: 0.75,
+  ease: "back.out(1.7)"
 });
 
-c.addEventListener("touchstart", function(e) {
-  mouseOver = true;
-  mouseMove(e);
+let hoveringContent = gsap.utils.toArray("p", content);
+
+hoveringContent.forEach((el) => {
+  el.addEventListener("mouseenter", () => {
+    tl.restart();
+  });
+  el.addEventListener("mouseleave", () => {
+    tl.reverse();
+  });
 });
 
-c.addEventListener("mouseleave", mouseLeave);
-c.addEventListener("touchend", mouseLeave);
-
-function mouseLeave() {
-  mouseOver = false;
-
-  for (var i = 0; i < gridLength; i++) {
-    for (var j = 0; j < gridLength; j++) {
-      var sign = signs[i][j];
-      if (!mouseOver) {
-        TweenMax.to(sign, 0.3, { x: 0, y: 0, scale: 1 });
-      }
-    }
-  }
-}
-
-window.addEventListener("resize", function() {
-  c.width = window.innerWidth;
-  c.height = window.innerHeight;
-  for (var i = 0; i < gridLength; i++) {
-    for (var j = 0; j < gridLength; j++) {
-      var min = Math.min(c.width, c.height);
-      sign = signs[i][j];
-      sign.left = c.width / (gridLength + 1) * (i + 1);
-      sign.top = c.height / (gridLength + 1) * (j + 1);
-      sign.width = min / 50;
-      sign.height = min / 50;
-    }
-  }
+/***************************************
+              Btn Hovering
+***************************************/
+let btnTl = gsap.timeline({ paused: true });
+btnTl.to(".hidden-content", {
+  "--size": 20,
+  duration: 0.75,
+  ease: "back.out(1.7)"
 });
 
-function dist([x1, y1], [x2, y2]) {
-  var dx = x1 - x2;
-  var dy = y1 - y2;
-  return Math.sqrt(dx * dx + dy * dy) || 1;
-}
-     
+link.addEventListener("mouseenter", (e) => {
+  linkAnimated = true;
+  let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
+  let iconRect = linkIcon.getBoundingClientRect();
+  let centerX = iconRect.left + iconRect.width / 2;
+  let centerY = iconRect.top + iconRect.height / 2 + scrollTop;
+
+  yTo(centerY);
+  xTo(centerX);
+  btnTl.restart();
+});
+
+link.addEventListener("mouseleave", (e) => {
+  linkAnimated = false;
+  btnTl.reverse();
+});
+
+/***************************************
+    Add Mask on First Mouse Movement
+***************************************/
+window.addEventListener("mousemove", onFirstMove);
+
+function onFirstMove(e) {
+  window.removeEventListener("mousemove", onFirstMove);
+  gsap.set(".hidden-content", { autoAlpha: 1, "--x": e.pageX, "--y": e.pageY });
+
+  window.addEventListener("mousemove", (e) => {
+    if (!linkAnimated) {
+      yTo(e.pageY);
+      xTo(e.pageX);
+    }
+  });
+}
+
+/***************************************
+      Only for the preview image
+***************************************/
+gsap.set(".hidden-content", {
+  autoAlpha: 1,
+  "--x": window.innerWidth / 3,
+  "--y": window.innerHeight / 2
+});
+tl.progress(0.2);
