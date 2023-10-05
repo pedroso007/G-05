@@ -1,10 +1,10 @@
-
+<script>
          function funcao1()
 {
 alert("Eu sou um alerta!");
 }
-     
-      
+         </script>   
+  <script>    
          <audio controls id="music">
 <source src="new.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
@@ -25,9 +25,9 @@ function pause() {
 myMusic.pause();
 
 }
+</script>
 
-
-
+<script>
       var Plus = function() {
   this.x = 0;
   this.y = 0;
@@ -192,3 +192,4 @@ function dist([x1, y1], [x2, y2]) {
   return Math.sqrt(dx * dx + dy * dy) || 1;
 }
      
+</script>
