@@ -1,17 +1,11 @@
-<script>
+
          function funcao1()
 {
 alert("Eu sou um alerta!");
 }
-         </script>   
-  <script>    
-         <audio controls id="music">
-<source src="new.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-<p>Click the buttons to play or pause the music.</p>
-<button onclick="play()" type="button">Play </button>
-      <button onclick="pause()" type="button">Pause</button>
+       
+   
+
 
  
 
@@ -192,4 +186,4 @@ function dist([x1, y1], [x2, y2]) {
   return Math.sqrt(dx * dx + dy * dy) || 1;
 }
      
-</script>
+
