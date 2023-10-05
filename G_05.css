@@ -173,3 +173,13 @@ li.dropdown {
 @media only screen and (max-device-width: 900px) {
 /* .menu { width:600px; } */
 }
+body{
+  background-color: #CB9805;
+  margin: 0;
+  overflow: hidden;
+}
+
+canvas{
+  touch-action: none;
+}
+
