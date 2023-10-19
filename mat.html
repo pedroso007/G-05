@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  
+<head>
   <style type="text/css">
     body {
       margin: 30px;
@@ -21,6 +22,8 @@
   <p>The Result is : <br>
    <span id = "result"></span>
   </p>
+  
+  
   <script>
     function multiplyBy()
     {
@@ -31,30 +34,44 @@
       document.getElementById(
         "result").innerHTML = num1 * num2;
     }
-    </script>
+  </script>
+</body>
+<html/>
+
+  <!DOCTYPE html>
+<html>
+  
+<head>
+  <style type="text/css">
+    body {
+      margin: 30px;
+    }
+  </style>
+</head>
+  
+<body>
   <form>
-    1st Number : <input type="text" 
+    1st Number : <input type="text"
     id="firstNumber" /><br>
     2nd Number: <input type="text" 
     id="secondNumber" /><br>
-    <input type="button" onClick="multiplyBy()" 
-    Value="Multiply" /><br>
+    <input type="button" onClick="divideBy()" 
+     Value="Divide" />
   </form>
-  
   <p>The Result is : <br>
-   <span id = "result"></span>
+    <span id = "result"></span>
   </p>
   
   
   <script>
-    function multiplyBy()
-    {
+    function divideBy() 
+    { 
       num1 = document.getElementById(
         "firstNumber").value;
       num2 = document.getElementById(
         "secondNumber").value;
       document.getElementById(
-        "result").innerHTML = num1 * num2;
+        "result").innerHTML = num1 / num2;
     }
   </script>
 </body>
