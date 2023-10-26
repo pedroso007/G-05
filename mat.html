@@ -59,8 +59,8 @@
     id="firstNumber" /><br>
     2nd Number: <input type="text" 
     id="secondNumber" /><br>
-    <input type="button" onClick="divideBy()" 
-     Value="Divide" />
+    <input type="button" onClick="By()" 
+     Value="Multiply" />
   </form>
   <p>The Result is : <br>
     <span id = "result"></span>
@@ -68,14 +68,14 @@
   
   
   <script>
-    function divideBy() 
+    function MultiplyBy() 
     { 
       num1 = document.getElementById(
         "firstNumber").value;
       num2 = document.getElementById(
         "secondNumber").value;
       document.getElementById(
-        "result").innerHTML = num1 / num2;
+        "result").innerHTML = num1 * num2;
     }
   </script>
       <form>
@@ -83,8 +83,8 @@
     id="firstNumber" /><br>
     2nd Number: <input type="text" 
     id="secondNumber" /><br>
-    <input type="button" onClick="divideBy()" 
-     Value="Divide" />
+    <input type="button" onClick="additionBy()" 
+     Value="Add" />
   </form>
   <p>The Result is : <br>
     <span id = "result"></span>
@@ -107,8 +107,8 @@
     id="firstNumber" /><br>
     2nd Number: <input type="text" 
     id="secondNumber" /><br>
-    <input type="button" onClick="divideBy()" 
-     Value="Divide" />
+    <input type="button" onClick="subtractionBy()" 
+     Value="subtrac" />
   </form>
   <p>The Result is : <br>
     <span id = "result"></span>
@@ -116,7 +116,7 @@
   
   
   <script>
-    function SubstracionBy() 
+    function SubtractionBy() 
     { 
       num1 = document.getElementById(
         "firstNumber").value;
