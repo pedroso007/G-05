@@ -176,3 +176,13 @@ li.dropdown {
     visibility: visible;
     z-index: 10;
 }
+body{
+  background-color: #CB9805;
+  margin: 0;
+  overflow: hidden;
+}
+
+canvas{
+  touch-action: none;
+}
+
