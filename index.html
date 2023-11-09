@@ -9,6 +9,68 @@
 
 <body>
    <script>
+var cursor = $('.cursor'),
+    follower = $('.cursor-follower'),
+    positionX = 0,
+    positionY = 0,
+    mouseX = 0,
+    mouseY = 0;
+
+
+$(document).mousemove(function(e){
+    mouseX = e.pageX;
+    mouseY = e.pageY;
+    
+    positionX +=(mouseX - positionX) /5;
+    positionY +=(mouseY - positionY) /5;
+    
+    cursor.css('left',mouseX).css('top',mouseY);
+ follower.css('left',positionX).css('top',positionY);
+});
+
+
+$('.hover').on('mouseover', function (){
+    cursor.addClass('active');
+    follower.addClass('active');
+    $(this).css({
+      fontWeight : '400'
+    });
+    
+})
+
+$('.hover').on('mouseleave', function (){
+    cursor.removeClass('active');
+    follower.removeClass('active');
+   $(this).css({
+      fontWeight : '300'
+    });
+  
+});
+
+
+TweenMax.to({},0.016,{
+  repeat : -1,
+  onRepeat :function (){
+  
+      positionX +=(mouseX - positionX) /5;
+    positionY +=(mouseY - positionY) /5;
+  
+  TweenMax.set(follower,{
+    css : {
+      left : positionX -12,
+      top : positionY -12
+    }
+  });
+  TweenMax.set(follower,{
+    css : {
+      left : mouseX,
+      top : mouseY
+    }
+  });
+  
+  
+}
+});
 
 </script>
 <header class="cabecalho">
