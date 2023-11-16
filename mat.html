@@ -37,7 +37,15 @@
 <div class="bj">
 <section class="parte-equipe">
       <div class="textos-equipe">
-     
+       <script>
+     function calcular(){
+   var val1 = parseFloat(document.body.querySelector("#valor1").value) || 0;
+   var val2 = parseFloat(document.body.querySelector("#valor2").value) || 0;
+                                                                       // ↑
+       // caso o campo esteja vazio ou não seja um número, o valor assume 0
+   console.log(val1+val2);
+}
+       </script>
            <form>
     1st Number : <input type="number"
     id="firstNumber" /><br>
