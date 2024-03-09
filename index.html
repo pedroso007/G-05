@@ -125,28 +125,7 @@ TweenMax.to({},0.016,{
         <input type="radio" class="slide-controller" name="slide3" />
          
     </section>
-   <script>
-        const slideControllers = document.querySelectorAll('.slide-controller');
-        const slidesList = document.querySelector('.slides-list');
-        let currentSlide = 0;
-
-        // Adicionar um evento de clique para cada controlador de slide
-        slideControllers.forEach((controller, index) => {
-            controller.addEventListener('click', () => {
-                currentSlide = index;
-                slidesList.style.left = `calc(${index} * -100%)`;
-            });
-        });
-      // Função para alterar os slides automaticamente após 20 segundos
-        function autoChangeSlide() {
-            currentSlide = (currentSlide + 1) % slideControllers.length;
-            slideControllers[currentSlide].checked = true;
-            slidesList.style.left = `calc(${currentSlide} * -100%)`;
-        }
-        // Definir um temporizador para alternar automaticamente os slides a cada 20 segundos (20000 milissegundos)
-        setInterval(autoChangeSlide, 10000);
-    </script>
-
+  
 <section class="integrantes">
         <h1 class="title-integrantes">Membros</h1>
 
