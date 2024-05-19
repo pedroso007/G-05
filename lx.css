@@ -53,3 +53,121 @@ border-top: none;
 background-color: var(--botao-ativo);
 border-bottom: 4px solid var(--verde);
 }
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.bj{
+    background-image: linear-gradient(#9999ff,#ccccff);
+    color: #FFFFFF;
+    
+}
+.cabecalho {
+   background-image: linear-gradient(#9999ff,#ccccff);
+    color: #FFFFFF;
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 24px 0;
+}
+.cabecalho-imagem{
+    width: 10%;
+}
+.cabecalho-lista-item{
+    display: inline-block;
+    margin: 0 16px;
+    font-size: 24px;
+}
+.textos-equipe{
+    padding-left: 30px;
+}
+.imagem-equipe{
+    
+    padding-left: 50px;
+    width: 20%;
+}
+.parte-equipe{
+    padding-top: 50px;
+    display: flex;
+    justify-content: center; 
+    
+}
+
+.title-integrantes{
+    text-align: center;
+    
+    
+}
+.integrantes{
+    padding-top: 30px;
+
+}
+.Estudantes{
+    display: grid;
+    grid-template-columns: 50% 50% ;
+    padding-left: 30px;
+    justify-content: center; 
+    
+
+}
+.integrantes-indivi{
+    display: flex;
+    padding-left: 20%;
+    padding-top: 10%;
+    padding-left: 30px;
+    
+}
+.foto-indivi{
+    width: 20%;
+}
+.Estudantes{
+    padding-left: 40px;
+
+}
+
+li a:hover,
+.dropdown:hover .dropbtn {
+    background-color: rgb(160, 156, 217);
+color: white;
+}
+
+li.dropdown {
+    display: inline-block;
+    font-size: 20px;
+    padding: 15px 0px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #g3g3g3;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: pastel purple;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+.dropdown-content a:hover {
+    background-color: #f2f2f2;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.li a,
+.dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 0px 16px;
+    text-decoration: none;
+}
